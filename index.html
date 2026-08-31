@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ing. Eduardo Palma Zambrano — Ingeniería Estructural, BIM y Automatización</title>
+<meta name="description" content="Ingeniero Civil Estructural y docente UCACUE. Biblioteca técnica de acceso libre, cursos de Revit y Robot Structural, y plataforma Ingeniería 360 para automatización del cálculo estructural con Python y Revit API.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://eduardopalma.ec/">
+
+<!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eduardo Palma">
+<meta property="og:title" content="Ing. Eduardo Palma Zambrano — Ingeniería Estructural, BIM y Automatización">
+<meta property="og:description" content="Ingeniero Civil Estructural · Docente UCACUE · Biblioteca técnica libre, cursos Revit y Robot Structural, plataforma Ingeniería 360.">
+<meta property="og:url" content="https://eduardopalma.ec/">
+<meta property="og:image" content="https://eduardopalma.ec/fotoep.png">
+<meta property="og:locale" content="es_EC">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ing. Eduardo Palma Zambrano — Ingeniería Estructural, BIM y Automatización">
+<meta name="twitter:description" content="Ingeniero Civil Estructural · Docente UCACUE · Cursos Revit y Robot Structural, plataforma Ingeniería 360.">
+<meta name="twitter:image" content="https://eduardopalma.ec/fotoep.png">
+
+<link rel="icon" href="fotoep.png">
+
+<!-- Datos estructurados para Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eduardo Palma Zambrano",
+  "honorificPrefix": "Ing.",
+  "jobTitle": "Ingeniero Civil Estructural",
+  "description": "Ingeniero Civil Estructural, docente UCACUE. Biblioteca técnica libre, cursos de Revit y Robot Structural, plataforma Ingeniería 360.",
+  "url": "https://eduardopalma.ec/",
+  "image": "https://eduardopalma.ec/fotoep.png",
+  "email": "mailto:edupa1087@gmail.com",
+  "nationality": "Ecuador",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "Universidad Católica de Cuenca (UCACUE)"
+  },
+  "knowsAbout": ["Ingeniería estructural", "BIM", "Autodesk Revit", "Robot Structural Analysis", "Python", "Revit API", "Diseño sismorresistente"]
+}
+</script>
+
+<style>
+  :root {
+    --text: #2C2C2B;
+    --text-secondary: #7D7A75;
+    --canvas: #FFFFFF;
+    --surface: #F9F8F7;
+    --surface-2: #F0EFED;
+    --border: #E6E5E3;
+    --accent: #2783DE;
+    --accent-soft: #E5F2FC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.65);
+      --canvas: #191919;
+      --surface: #202020;
+      --surface-2: #383836;
+      --border: rgba(255, 255, 255, 0.20);
+      --accent: #5E9FE8;
+      --accent-soft: rgba(94, 159, 232, 0.12);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--canvas);
+    color: var(--text);
+    display: flex;
+    min-height: 100%;
+    padding: 48px 24px;
+    line-height: 1.5;
+  }
+
+  main {
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .foto {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    margin: 0 auto 24px;
+    display: block;
+    background: var(--surface-2);
+  }
+
+  .iniciales {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    margin: 0 auto 24px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .subtitulo {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .descripcion {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 58ch;
+    margin: 0 auto 24px;
+  }
+
+  .etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+    list-style: none;
+  }
+
+  .etiquetas li {
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  .accesos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 440px;
+    margin: 0 auto 16px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+
+  .btn-principal {
+    background: var(--accent);
+    color: #FFFFFF;
+  }
+
+  .btn-principal:hover { filter: brightness(1.08); }
+
+  .btn-secundario {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .btn-secundario:hover { background: var(--surface-2); }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .nota-acceso {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  nav.contacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  nav.contacto a {
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 8px 4px;
+  }
+
+  nav.contacto a:hover { text-decoration: underline; }
+
+  footer {
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 32px 20px; }
+    h1 { font-size: 25px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <img class="foto" src="fotoep.png" alt="Fotografía de Eduardo Palma Zambrano"
+       onerror="this.style.display='none';document.getElementById('iniciales').style.display='flex';">
+  <div class="iniciales" id="iniciales" aria-hidden="true">EP</div>
+
+  <h1>Ing. Eduardo Palma Zambrano</h1>
+  <p class="subtitulo">Ingeniero Civil Estructural · Docente · Desarrollador BIM</p>
+
+  <p class="descripcion">
+    Docente de la Carrera de Ingeniería Civil de la Facultad de Ingeniería, Industria y
+    Construcción de la Universidad Católica de Cuenca (UCACUE). Trabajo en estructuras,
+    modelado BIM (Revit&nbsp;⇄&nbsp;Robot) y programación científica con Python y la Revit API
+    para automatizar el diseño y el cálculo estructural.
+  </p>
+
+  <ul class="etiquetas">
+    <li>Estructuras</li>
+    <li>BIM · Revit · Robot</li>
+    <li>Python · Revit API</li>
+    <li>Docencia UCACUE</li>
+  </ul>
+
+  <nav class="accesos" aria-label="Accesos a contenido">
+    <a class="btn btn-principal" href="https://eduardopalma.notion.site/" target="_blank" rel="noopener">
+      📚 Biblioteca técnica — acceso libre
+    </a>
+    <a class="btn btn-secundario" href="https://app.notion.com/p/eduardopalma/Modelado-BIM-Estructural-con-Revit-931f5adb8abf49fcae1a7eb3b39010cf?source=copy_link" target="_blank" rel="noopener">
+      🏗️ Curso: Modelado BIM Estructural · Revit 3D–5D 🔒
+    </a>
+    <a class="btn btn-secundario" href="https://app.notion.com/p/eduardopalma/An-lisis-Sismorresistente-con-Robot-Structural-43eb52b0fe0f4ef1be518f5742a7d31e?source=copy_link" target="_blank" rel="noopener">
+      🌊 Curso: Diseño Sismorresistente · Revit ⇄ Robot 🔒
+    </a>
+    <a class="btn btn-secundario" href="https://app.notion.com/p/eduardopalma/INGENIER-A-360-29c8668168f780788848d7ecfabec197?source=copy_link" target="_blank" rel="noopener">
+      🧮 Plataforma Ingeniería 360 🔒
+    </a>
+  </nav>
+
+  <p class="nota-acceso">🔒 Acceso por invitación: se habilita con el correo registrado al adquirir el curso o la plataforma.</p>
+
+  <nav class="contacto" aria-label="Contacto">
+    <a href="mailto:edupa1087@gmail.com">edupa1087@gmail.com</a>
+    <a href="https://eduardopalma.xyz/">eduardopalma.xyz</a>
+  </nav>
+
+  <footer>
+    Cuenca, Ecuador — Contenido técnico de ingeniería estructural, BIM y programación.
+  </footer>
+</main>
+</body>
+</html>
