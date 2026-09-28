@@ -77,14 +77,15 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body { height: 100%; }
+  html { height: 100%; }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background: var(--canvas);
     color: var(--text);
     display: flex;
-    min-height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding: 48px 24px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -208,10 +209,18 @@
   .btn-desc a:hover { text-decoration: underline; }
 
   footer {
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
     color: var(--text-secondary);
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
+  }
+
+  footer .linea {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
   }
 
   @media (max-width: 480px) {
@@ -250,7 +259,9 @@
   </nav>
 
   <footer>
-    Cuenca, Ecuador — Contenido técnico de ingeniería estructural, BIM y programación.
+    <span class="linea" aria-hidden="true"></span>
+    Cuenca · Ecuador
+    <span class="linea" aria-hidden="true"></span>
   </footer>
 </main>
 
