@@ -87,6 +87,8 @@
     min-height: 100%;
     padding: 48px 24px;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   main {
@@ -124,42 +126,28 @@
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .subtitulo {
-    font-size: 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.6;
     color: var(--text-secondary);
     margin-bottom: 24px;
   }
 
   .descripcion {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--text);
     max-width: 58ch;
-    margin: 0 auto 24px;
-  }
-
-  .etiquetas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 32px;
-    list-style: none;
-  }
-
-  .etiquetas li {
-    font-size: 14px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
+    margin: 0 auto 32px;
   }
 
   .accesos {
@@ -167,7 +155,7 @@
     flex-direction: column;
     gap: 12px;
     max-width: 440px;
-    margin: 0 auto 16px;
+    margin: 0 auto 24px;
   }
 
   .btn {
@@ -190,14 +178,6 @@
 
   .btn-principal:hover { filter: brightness(1.08); }
 
-  .btn-juego {
-    background: linear-gradient(135deg, #E56458 0%, #D5803B 100%);
-    color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(213, 128, 59, 0.35);
-  }
-
-  .btn-juego:hover { filter: brightness(1.08); }
-
   .btn-desc {
     font-size: 13px;
     line-height: 1.45;
@@ -207,45 +187,31 @@
 
   .btn-secundario {
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1px solid #C7C4BE;
     color: var(--text);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   }
 
-  .btn-secundario:hover { background: var(--surface-2); }
+  .btn-secundario:hover { background: var(--surface-2); border-color: var(--text-secondary); }
+
+  @media (prefers-color-scheme: dark) {
+    .btn-secundario { border-color: rgba(255, 255, 255, 0.35); }
+  }
 
   .btn:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 3px;
   }
 
-  .nota-acceso {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-  }
+  .btn-desc a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
-  nav.contacto {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-    justify-content: center;
-    margin-bottom: 48px;
-  }
-
-  nav.contacto a {
-    font-size: 15px;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 8px 4px;
-  }
-
-  nav.contacto a:hover { text-decoration: underline; }
+  .btn-desc a:hover { text-decoration: underline; }
 
   footer {
     font-size: 14px;
     color: var(--text-secondary);
     border-top: 1px solid var(--border);
-    padding-top: 24px;
+    padding-top: 16px;
   }
 
   @media (max-width: 480px) {
@@ -264,36 +230,23 @@
   <p class="subtitulo">Ingeniero Civil Estructural · Docente universitario · Desarrollador BIM</p>
 
   <p class="descripcion">
-    Docente universitario e ingeniero civil estructural. Trabajo en estructuras, modelado
-    BIM (Revit&nbsp;⇄&nbsp;Robot) y programación científica con Python y la Revit API para
-    automatizar el diseño y el cálculo estructural.
+    Trabajo en estructuras, modelado BIM (Revit&nbsp;⇄&nbsp;Robot) y programación
+    científica con Python y la Revit API para automatizar el diseño y el cálculo
+    estructural.
   </p>
 
-  <ul class="etiquetas">
-    <li>Estructuras</li>
-    <li>BIM · Revit · Robot</li>
-    <li>Python · Revit API</li>
-    <li>Docencia universitaria</li>
-  </ul>
 
   <nav class="accesos" aria-label="Accesos a contenido">
-    <a class="btn btn-principal" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
+    <a class="btn btn-secundario" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
       📚 Biblioteca técnica — acceso libre
     </a>
-    <a class="btn btn-juego" href="que-tanto-sabes.html" target="_blank" rel="noopener">
-      🎮 ¿Qué tanto sabes? — Reto de preguntas de ingeniería
-    </a>
-    <a class="btn btn-secundario" href="https://app.notion.com/p/eduardopalma/Calculadora-de-Elementos-Estructurales-Membres-a-dc9e770421df4cab8bdc31e7489054c8?source=copy_link" target="_blank" rel="noopener">
+    <a class="btn btn-principal" href="https://app.notion.com/p/eduardopalma/Calculadora-de-Elementos-Estructurales-Membres-a-dc9e770421df4cab8bdc31e7489054c8?source=copy_link" target="_blank" rel="noopener">
       🧮 Calculadora de Elementos Estructurales 🔒
     </a>
-    <p class="btn-desc">Diseño y verificación de vigas, columnas, losas, muros y zapatas — NEC / AISC / ACI. Diseñe desde cero o compare un diseño existente. <b>Membresía anual: $24.</b></p>
-  </nav>
-
-  <p class="nota-acceso">🔒 La Calculadora es por membresía: escríbame a edupa1087@gmail.com y le habilito el acceso con su correo.</p>
-
-  <nav class="contacto" aria-label="Contacto">
-    <a href="mailto:edupa1087@gmail.com">edupa1087@gmail.com</a>
-    <a href="https://eduardopalma.ec/">eduardopalma.ec</a>
+    <p class="btn-desc">Diseño y verificación de vigas, columnas, losas, muros y zapatas — NEC / AISC / ACI. Diseñe desde cero o compare un diseño existente. <b>Membresía anual: $24</b> — escríbame a <a href="mailto:edupa1087@gmail.com">edupa1087@gmail.com</a> y le habilito el acceso con su correo.</p>
+    <a class="btn btn-secundario" href="que-tanto-sabes.html" target="_blank" rel="noopener">
+      🎮 ¿Qué tanto sabes? — Reto de preguntas de ingeniería
+    </a>
   </nav>
 
   <footer>
