@@ -179,6 +179,23 @@
 
   .btn-principal:hover { filter: brightness(1.08); }
 
+  .btn-principal { flex-wrap: wrap; row-gap: 6px; }
+
+  .insignia {
+    display: inline-block;
+    background: #FFFFFF;
+    color: #1B5FA8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 5px 9px;
+    border-radius: 99px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+  }
+
   .btn-desc {
     font-size: 13px;
     line-height: 1.45;
@@ -254,8 +271,8 @@
     <a class="btn btn-secundario" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
       📚 Biblioteca técnica — acceso libre
     </a>
-    <a class="btn btn-principal" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener">
-      🎓 Cursos y calculadoras 🔒
+    <a class="btn btn-principal" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener" data-nombre="🎓 Cursos y calculadoras 🔒">
+      🎓 Cursos y calculadoras 🔒 <span class="insignia">Gratis 48 horas</span>
     </a>
     <p class="btn-desc">Cursos de Revit Estructural y Robot Structural Analysis, y calculadoras de elementos estructurales (NEC / AISC / ACI), en un solo acceso. <b>Pruébelo gratis 48 horas</b> con su cuenta Gmail. <b>Membresía anual: $24</b> — escríbame a <a href="mailto:edupa1087@gmail.com">edupa1087@gmail.com</a> y le habilito el acceso con su cuenta Gmail. <a href="contenidos.html">Ver qué está disponible y qué viene en camino</a>. Los contenidos se irán sumando según los requerimientos de los miembros.</p>
     <a class="btn btn-secundario" href="que-tanto-sabes.html" target="_blank" rel="noopener">
@@ -275,7 +292,7 @@
   // Medición de clics por botón en GA4
   document.querySelectorAll('.accesos .btn').forEach(function(boton) {
     boton.addEventListener('click', function() {
-      gtag('event', 'click_acceso', { nombre_boton: boton.textContent.trim() });
+      gtag('event', 'click_acceso', { nombre_boton: (boton.dataset.nombre || boton.textContent).trim() });
     });
   });
 </script>
