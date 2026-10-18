@@ -225,6 +225,42 @@
 
   .btn-desc a:hover { text-decoration: underline; }
 
+
+  .destacado { display: flex; flex-direction: column; gap: 10px; }
+
+  .btn-grande {
+    min-height: 60px;
+    font-size: 17px;
+    box-shadow: 0 4px 14px rgba(27, 95, 168, 0.35);
+  }
+
+  .destacado .btn-desc { margin: 0 8px; text-align: center; font-size: 14px; }
+
+  .enlace-ver { text-align: center; margin: 0; font-size: 14px; }
+
+  .enlace-ver a { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+  .enlace-ver a:hover { text-decoration: underline; }
+
+  .separador {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 10px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .separador::before, .separador::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
   footer {
     display: flex;
     align-items: center;
@@ -268,15 +304,21 @@
   </p>
 
   <nav class="accesos" aria-label="Accesos a contenido">
-    <a class="btn btn-secundario" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
-      📚 Biblioteca técnica — acceso libre
-    </a>
-    <a class="btn btn-principal" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener" data-nombre="🎓 Cursos y calculadoras 🔒">
-      🎓 Cursos y calculadoras 🔒 <span class="insignia">Gratis 48 horas</span>
-    </a>
-    <p class="btn-desc">Cursos de Revit Estructural y Robot Structural Analysis, y calculadoras de elementos estructurales (NEC / AISC / ACI), en un solo acceso. <b>Pruébelo gratis 48 horas</b> con su cuenta Gmail. <b>Membresía anual: $25</b> (IVA incluido), con pago en línea con tarjeta o Saldo Payphone y activación inmediata. <a href="contenidos.html">Ver qué está disponible y qué viene en camino</a>. Los contenidos se irán sumando según los requerimientos de los miembros.</p>
+    <div class="destacado">
+      <a class="btn btn-principal btn-grande" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener" data-nombre="🎓 Cursos y calculadoras 🔒">
+        🎓 Cursos y calculadoras 🔒 <span class="insignia">Gratis 48 horas</span>
+      </a>
+      <p class="btn-desc">Cursos de Revit Estructural y Robot Structural Analysis, y calculadoras de elementos estructurales (NEC / AISC / ACI), en un solo acceso. <b>Pruébelo gratis 48 horas</b> con su cuenta Gmail. <b>Membresía anual: $25</b> (IVA incluido), con pago en línea y activación inmediata.</p>
+      <p class="enlace-ver"><a href="contenidos.html" data-nombre="Ver qué incluye y qué viene en camino">Ver qué incluye y qué viene en camino →</a></p>
+    </div>
+
+    <p class="separador">También en el sitio</p>
+
     <a class="btn btn-secundario" href="que-tanto-sabes.html" target="_blank" rel="noopener">
       🎮 ¿Qué tanto sabes? — Reto de preguntas de ingeniería
+    </a>
+    <a class="btn btn-secundario" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
+      📚 Biblioteca técnica — acceso libre
     </a>
   </nav>
 
@@ -285,12 +327,12 @@
     Cuenca · Ecuador
     <span class="linea" aria-hidden="true"></span>
   </footer>
-  <p class="filosofia"><a href="contenidos.html">Contenidos y estado</a> · <a href="filosofia.html">Filosofía del sitio</a></p>
+  <p class="filosofia"><a href="filosofia.html">Filosofía del sitio</a></p>
 </main>
 
 <script>
   // Medición de clics por botón en GA4
-  document.querySelectorAll('.accesos .btn').forEach(function(boton) {
+  document.querySelectorAll('.accesos .btn, .enlace-ver a').forEach(function(boton) {
     boton.addEventListener('click', function() {
       gtag('event', 'click_acceso', { nombre_boton: (boton.dataset.nombre || boton.textContent).trim() });
     });
