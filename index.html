@@ -242,50 +242,39 @@
 
   .enlace-ver a:hover { text-decoration: underline; }
 
-  .separador {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 10px 0 0;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-  }
 
-  .separador::before, .separador::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
 
-  footer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    color: var(--text-secondary);
-  }
 
-  .filosofia { text-align: center; margin-top: 14px; font-size: 13px; line-height: 1.7; color: var(--text-secondary); }
+  .gratis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-  .filosofia a { color: var(--accent); font-size: 14px; font-weight: 600; text-decoration: none; }
+  .btn-mini { flex-direction: column; gap: 2px; min-height: 68px; padding: 10px 8px; font-size: 15px; line-height: 1.25; }
+
+  .btn-mini small { font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+
+  .filosofia { text-align: center; margin-top: 18px; font-size: 14px; }
+
+  .filosofia a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
   .filosofia a:hover { text-decoration: underline; }
 
-  footer .linea {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
 
   @media (max-width: 480px) {
-    body { padding: 32px 20px; }
-    h1 { font-size: 25px; }
+    body { padding: 16px 16px; }
+    .foto, .iniciales { width: 92px; height: 92px; margin-bottom: 14px; }
+    .iniciales { font-size: 30px; }
+    h1 { font-size: 22px; margin-bottom: 6px; white-space: nowrap; }
+    .subtitulo { font-size: 11px; line-height: 1.45; margin-bottom: 10px; }
+    .descripcion { font-size: 14px; line-height: 1.45; margin-bottom: 18px; }
+    .accesos { gap: 14px; margin-bottom: 0; }
+    .destacado { gap: 8px; }
+    .btn-grande { min-height: 0; padding: 11px 14px; font-size: 17px; row-gap: 5px; }
+    .btn-mini { min-height: 0; padding: 9px 4px; font-size: 14px; }
+    .btn-mini small { font-size: 12px; }
+    .destacado .btn-desc { font-size: 13px; line-height: 1.4; margin: 0 4px; }
+    .enlace-ver { font-size: 14px; }
+    .filosofia { margin-top: 14px; }
   }
+  @media (max-width: 340px) { h1 { font-size: 19px; } }
 </style>
 </head>
 <body>
@@ -298,9 +287,8 @@
   <p class="subtitulo">Ingeniero Civil Estructural · Docente universitario · Desarrollador BIM</p>
 
   <p class="descripcion">
-    Trabajo en estructuras, modelado BIM (Revit&nbsp;⇄&nbsp;Robot) y programación
-    científica con Python y la Revit API para automatizar el diseño y el cálculo
-    estructural.
+    Trabajo en estructuras, BIM (Revit&nbsp;⇄&nbsp;Robot) y programación con Python
+    y la Revit API para automatizar el diseño y el cálculo estructural.
   </p>
 
   <nav class="accesos" aria-label="Accesos a contenido">
@@ -308,26 +296,21 @@
       <a class="btn btn-principal btn-grande" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener" data-nombre="🎓 Cursos y calculadoras 🔒">
         🎓 Cursos y calculadoras 🔒 <span class="insignia">Gratis 48 horas</span>
       </a>
-      <p class="btn-desc">Cursos de Revit Estructural y Robot Structural Analysis, y calculadoras de elementos estructurales (NEC / AISC / ACI), en un solo acceso. <b>Pruébelo gratis 48 horas</b> con su cuenta Gmail. <b>Membresía anual: $25</b> (IVA incluido), con pago en línea y activación inmediata.</p>
+      <p class="btn-desc">Cursos de Revit y Robot, y calculadoras NEC / AISC / ACI. Pruébelo gratis con su Gmail; luego <b>membresía anual de $25</b> (IVA incluido), con pago en línea.</p>
       <p class="enlace-ver"><a href="contenidos.html" data-nombre="Ver qué incluye y qué viene en camino">Ver qué incluye y qué viene en camino →</a></p>
     </div>
 
-    <p class="separador">También en el sitio</p>
-
-    <a class="btn btn-secundario" href="que-tanto-sabes.html" target="_blank" rel="noopener">
-      🎮 ¿Qué tanto sabes? — Reto de preguntas de ingeniería
-    </a>
-    <a class="btn btn-secundario" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener">
-      📚 Biblioteca técnica — acceso libre
-    </a>
+    <div class="gratis">
+      <a class="btn btn-secundario btn-mini" href="que-tanto-sabes.html" target="_blank" rel="noopener" data-nombre="🎮 ¿Qué tanto sabes? — Reto de preguntas de ingeniería">
+        <span>🎮 ¿Qué tanto sabes?</span><small>Reto de ingeniería</small>
+      </a>
+      <a class="btn btn-secundario btn-mini" href="https://eduardopalma.notion.site/235620b351734675b77a3160382fa58c" target="_blank" rel="noopener" data-nombre="📚 Biblioteca técnica — acceso libre">
+        <span>📚 Biblioteca técnica</span><small>Acceso libre</small>
+      </a>
+    </div>
   </nav>
 
-  <footer>
-    <span class="linea" aria-hidden="true"></span>
-    Cuenca · Ecuador
-    <span class="linea" aria-hidden="true"></span>
-  </footer>
-  <p class="filosofia">Calcular con criterio, no solo obtener un resultado.<br><a href="filosofia.html">Leer la filosofía del sitio →</a></p>
+  <p class="filosofia"><a href="filosofia.html">Filosofía del sitio</a></p>
 </main>
 
 <script>
