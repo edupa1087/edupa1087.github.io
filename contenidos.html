@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contenidos y estado — Ing. Eduardo Palma Zambrano</title>
-<meta name="description" content="Cursos y calculadoras de ingeniería estructural del portal, con su estado: disponible, en desarrollo o planificada.">
+<meta name="description" content="Cursos, calculadoras y extensiones de Revit del portal, con su estado: disponible, en desarrollo o planificada.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://eduardopalma.ec/contenidos.html">
 <style>
@@ -23,6 +23,7 @@ li{margin:6px 0}
 .fecha{color:var(--sec);font-size:14px;margin-bottom:20px}
 a{color:var(--accent)}
 .fila{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 2px;border-bottom:1px solid var(--border);font-size:15px}
+.fila>span:first-child{min-width:0;overflow-wrap:anywhere}
 .et{font-size:12px;color:var(--sec);border:1px solid var(--border);border-radius:99px;padding:2px 10px;white-space:nowrap}
 .et.disponible{color:#1a7f37;border-color:#1a7f37;background:#dafbe1;font-weight:600}
 .et.desarrollo{color:#7d4e00;border-color:#bf8700;background:#fff8c5}
@@ -38,9 +39,9 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
 <main>
 <p class="volver"><a href="/">← eduardopalma.ec</a></p>
 <h1>Contenidos y estado</h1>
-<p class="fecha">Cursos y calculadoras del portal de miembros</p>
+<p class="fecha">Cursos, extensiones y calculadoras del portal de miembros</p>
 
-<p>El portal reúne dos tipos de contenido: cursos de modelado y análisis (Revit y Robot Structural) y calculadoras de elementos estructurales. Esta página lista lo previsto y el estado de cada elemento. La lista se actualiza a medida que cambia el avance.</p>
+<p>El portal reúne cursos de modelado y análisis (Revit y Robot Structural) y calculadoras de ingeniería civil. También contempla extensiones de Revit desarrolladas por Eduardo Palma, actualmente planificadas. Esta página muestra el estado de cada contenido; lo que está en desarrollo o planificado aún no está disponible y no tiene fecha de publicación comprometida.</p>
 
 <div class="leyenda">
 <ul>
@@ -53,7 +54,10 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
 <p id="aviso-carga">Cargando la lista…</p>
 <div id="lista"></div>
 
-<p style="margin-top:26px">Puede probar el portal gratis durante 48 horas con su cuenta Gmail. La membresía anual cuesta USD 25, IVA incluido, y se paga en línea (ver las <a href="terminos.html#prueba">Condiciones del Servicio</a>).</p>
+<p>El alcance previsto de las herramientas de materiales comprende cantidades de cemento, arena, grava y agua a partir de dosificaciones de hormigón trabajadas en Cuenca; bloques o ladrillos por m² y morteros para juntas y enlucidos. Los resultados dependerán de los materiales, datos e hipótesis declarados en cada herramienta.</p>
+<p>La <a href="filosofia.html">filosofía y documentación técnica</a> establece la base teórica, los ejemplos, las unidades y los límites que debe declarar cada calculadora.</p>
+
+<p style="margin-top:26px">Puede probar el portal gratis durante 48 horas con su cuenta Gmail. La membresía anual cuesta USD 25, IVA incluido, cubre los contenidos disponibles y los que se publiquen durante su vigencia, y se paga en línea (ver las <a href="terminos.html#prueba">Condiciones del Servicio</a>).</p>
 <p><a href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener">Ir al portal de miembros</a></p>
 
 <footer>Cuenca · Ecuador · <a href="/">eduardopalma.ec</a> · <a href="filosofia.html">Filosofía</a> · <a href="privacidad.html">Política de Privacidad</a> · <a href="terminos.html">Condiciones del Servicio</a></footer>
@@ -75,6 +79,8 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
     .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
     .then(function (c) {
       seccion('Cursos', c.cursos);
+      seccion('Extensiones de Revit', c.extensiones || [{ titulo: 'Extensiones de Revit desarrolladas por Eduardo Palma', estado: 'planificada', etiqueta: 'Planificada' }]);
+      var nota = document.createElement('p'); nota.textContent = 'Cuando se publiquen, requerirán conexión a internet y membresía vigente para ejecutar sus funciones. Cada extensión indicará las versiones de Revit en las que haya sido probada; no se presupone compatibilidad con versiones futuras.'; lista.appendChild(nota);
       var h = document.createElement('h2'); h.textContent = 'Calculadoras'; lista.appendChild(h);
       c.calculadoras.forEach(function (g) {
         var s = document.createElement('p'); s.style.fontWeight = '600'; s.style.marginTop = '18px'; s.textContent = g.categoria; lista.appendChild(s);
