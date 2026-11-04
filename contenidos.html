@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contenidos y estado — Ing. Eduardo Palma Zambrano</title>
-<meta name="description" content="Cursos y calculadoras del portal, con su estado: disponible, en actualización, en desarrollo o planificada.">
+<meta name="description" content="Cursos y calculadoras de estructuras de acero del portal, con su estado: disponible, en actualización, en desarrollo o planificada.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://eduardopalma.ec/contenidos.html">
 <style>
@@ -22,15 +22,22 @@ li{margin:6px 0}
 .volver{font-size:14px;margin-bottom:18px}
 .fecha{color:var(--sec);font-size:14px;margin-bottom:20px}
 a{color:var(--accent)}
-.fila{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 2px;border-bottom:1px solid var(--border);font-size:15px}
-.fila>span:first-child{min-width:0;overflow-wrap:anywhere}
-.et{font-size:12px;color:var(--sec);border:1px solid var(--border);border-radius:99px;padding:2px 10px;white-space:nowrap}
+.fila{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:9px 2px;border-bottom:1px solid var(--border);font-size:15px}
+.fila>span:first-child{min-width:0}
+.fila .t{display:block;overflow-wrap:anywhere}
+.fila .sec{display:block;font-size:13px;color:var(--sec);line-height:1.45;margin-top:2px}
+.et{font-size:12px;color:var(--sec);border:1px solid var(--border);border-radius:99px;padding:2px 10px;white-space:nowrap;margin-top:2px}
 .et.disponible,.et.actualizacion{color:#1a7f37;border-color:#1a7f37;background:#dafbe1;font-weight:600}
 .et.desarrollo{color:#7d4e00;border-color:#bf8700;background:#fff8c5}
 .et.planificada{color:#57606a;border-color:#afb8c1;background:#eaeef2}
 @media (prefers-color-scheme:dark){.et.disponible,.et.actualizacion{color:#56d364;border-color:#2ea043;background:rgba(46,160,67,.15)}.et.desarrollo{color:#e3b341;border-color:#9e6a03;background:rgba(187,128,9,.15)}.et.planificada{color:#9ca7b3;border-color:#4d5663;background:rgba(110,118,129,.15)}}
 .leyenda{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin:16px 0}
 .leyenda li{margin:6px 0;font-size:15px}
+.resumen{display:flex;flex-wrap:wrap;gap:6px 30px;margin:18px 0 6px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.resumen div{font-size:14px;color:var(--sec);white-space:nowrap}
+.resumen b{font-size:20px;color:var(--text);letter-spacing:-.01em;margin-right:7px}
+.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:11px 20px;border-radius:8px;margin-top:8px}
+.nota{font-size:14px;color:var(--sec);margin-top:10px}
 #aviso-carga{color:var(--sec);font-size:15px}
 footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color:var(--sec);font-size:14px}
 </style>
@@ -41,9 +48,11 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
 <h1>Contenidos y estado</h1>
 <p class="fecha">Cursos y calculadoras del portal de miembros</p>
 
-<p>El portal reúne tres cursos (modelado BIM en Revit, análisis sismorresistente en Robot Structural e interoperabilidad entre ambos) y calculadoras de ingeniería civil de acero, hormigón y madera. Los cursos disponibles se actualizan de forma continua. Esta página muestra el estado de cada contenido; lo que está en desarrollo o planificado aún no está disponible y no tiene fecha de publicación comprometida.</p>
+<p>El portal reúne tres cursos y una línea de calculadoras dedicada a estructuras de acero: los elementos, sus conexiones y la cimentación que los recibe. Del tensor a la zapata, cada pieza del camino tiene la suya. Los cursos se actualizan de forma continua.</p>
 
-<div class="leyenda">
+<p>Esta página muestra el estado de cada contenido; lo que está en desarrollo o planificado aún no está disponible y no tiene fecha de publicación comprometida.</p>
+
+<div class="leyenda" id="leyenda">
 <ul>
 <li><strong>Disponible:</strong> puede usarse hoy en el portal.</li>
 <li><strong>Disponible · en actualización:</strong> puede usarse hoy; su contenido se amplía y mejora de forma continua.</li>
@@ -55,9 +64,9 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
 <p id="aviso-carga">Cargando la lista…</p>
 <div id="lista"></div>
 
-
 <p style="margin-top:26px">Puede probar el portal gratis durante 48 horas con su cuenta Gmail. La membresía anual cuesta USD 25, IVA incluido, cubre los contenidos disponibles y los que se publiquen durante su vigencia, y se paga en línea (ver las <a href="terminos.html#prueba">Condiciones del Servicio</a>).</p>
-<p><a href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener">Ir al portal de miembros</a></p>
+<p><a class="cta" href="https://acceso.eduardopalma.ec" target="_blank" rel="noopener">Entrar al portal de miembros</a></p>
+<p class="nota">Prueba gratuita de 48 horas, una sola vez por cuenta Gmail.</p>
 
 <footer>Cuenca · Ecuador · <a href="/">eduardopalma.ec</a> · <a href="filosofia.html">Filosofía</a> · <a href="privacidad.html">Política de Privacidad</a> · <a href="terminos.html">Condiciones del Servicio</a></footer>
 </main>
@@ -66,7 +75,9 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
   var lista = document.getElementById('lista'), aviso = document.getElementById('aviso-carga');
   function fila(i) {
     var d = document.createElement('div'); d.className = 'fila';
-    var t = document.createElement('span'); t.textContent = i.titulo;
+    var t = document.createElement('span');
+    var n = document.createElement('span'); n.className = 't'; n.textContent = i.titulo; t.appendChild(n);
+    if (i.nota) { var s = document.createElement('span'); s.className = 'sec'; s.textContent = i.nota; t.appendChild(s); }
     var e = document.createElement('span'); e.className = 'et ' + (/^[a-z]+$/.test(i.estado) ? i.estado : ''); e.textContent = i.etiqueta;
     d.appendChild(t); d.appendChild(e); return d;
   }
@@ -74,9 +85,24 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);color
     var h = document.createElement('h2'); h.textContent = titulo; lista.appendChild(h);
     items.forEach(function (i) { lista.appendChild(fila(i)); });
   }
+  function resumen(cursos, grupos) {
+    var total = 0, disp = 0;
+    grupos.forEach(function (g) { g.items.forEach(function (i) { total++; if (i.estado === 'disponible' || i.estado === 'actualizacion') disp++; }); });
+    var datos = [[cursos.length, 'cursos'], [total, 'calculadoras previstas'], [disp, disp === 1 ? 'disponible hoy' : 'disponibles hoy']];
+    var box = document.createElement('div'); box.className = 'resumen';
+    datos.forEach(function (par) {
+      var d = document.createElement('div'), b = document.createElement('b');
+      b.textContent = par[0];
+      d.appendChild(b); d.appendChild(document.createTextNode(par[1]));
+      box.appendChild(d);
+    });
+    var leyenda = document.getElementById('leyenda');
+    leyenda.parentNode.insertBefore(box, leyenda);
+  }
   fetch('https://acceso.eduardopalma.ec/catalogo.json', { headers: { 'Accept': 'application/json' } })
     .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
     .then(function (c) {
+      resumen(c.cursos, c.calculadoras);
       seccion('Cursos', c.cursos);
       var h = document.createElement('h2'); h.textContent = 'Calculadoras'; lista.appendChild(h);
       c.calculadoras.forEach(function (g) {
